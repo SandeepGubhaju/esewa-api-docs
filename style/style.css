@@ -12,8 +12,18 @@
     display: flex;
     
 }
+
+
+
 .main{
     position:relative;
+}
+
+
+
+.main .container-fluid{
+    padding-left:0px !important;
+    padding-right:0px !important;
 }
 
 .second-image{
@@ -55,10 +65,134 @@
     font-weight: 500;
 }
 
+.main-content a{
+    color:white;
+    text-decoration: none;
+}
+
+.main-content button:hover{
+    background-color: #60bb47;
+    text-decoration: none;
+    border: 0;
+    
+}
+.main-content a:hover{
+    color:black;
+    opacity: 0.4;
+}
+
+
+
 .content .container{
     padding-top: 71px;
 }
 .content .content-para{
     font-size: 13px;
     font-weight: 350;
+}
+
+.content-third-para a{
+    font-size: 20px;
+}
+
+/* DropDown */
+
+.dropbtn {
+    background-color: #1a8754;
+    color: white;
+   
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+
+
+  /* hover for navbar */
+
+  .header a:hover{
+    color:black;
+  }
+
+  
+
+
+  .content-third-para a{
+    color: green;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .content-third-para h6{
+    font-size: 15px;
+  }
+
+  .content-third-para ul li {
+    font-size:13px;
+  }
+
+
+  /* search bar */
+
+  .header input[type="text"] {
+    width: 121%;
+    /* height: 112%; */
+    border: none;
+    background: black;
+    color:white;
+}
+
+.header ::placeholder{
+    color:green;
+}
+
+
+.epay-content h4{
+    font-size: 19px;
+    margin-top: 47px;
+    
+}
+ 
+
+.epay-content .epay-content-para{
+    font-size: 12px;
+    margin-top: 24px;
+
+}
+.epay-content ol{
+    font-size: 10px;
+    margin-top: 24px;
+}
+
+.epay-content h6{
+    padding-top: 16px;
 }
