@@ -1,3 +1,4 @@
+
 .header li{
     list-style: none;
   
@@ -34,8 +35,10 @@
 
 
 .header{
-    margin-bottom: -16px;
+    
+    padding: 10px;
 }
+
 
 .first-image{
     
@@ -86,10 +89,35 @@
 .content .container{
     padding-top: 71px;
 }
+.content h6{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.content-third-para .content-size{
+    font-size: 20px;
+}
+
+.content h4{
+    font-size: 32px;
+    margin-bottom: 23px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
 .content .content-para{
     font-size: 13px;
     font-weight: 350;
+    color: #3a4e63;
 }
+
+/* margin auto */
+*, ::after, ::before {
+    box-sizing: border-box;
+    margin: auto;
+}
+
 
 .content-third-para a{
     font-size: 20px;
@@ -164,35 +192,163 @@
   /* search bar */
 
   .header input[type="text"] {
-    width: 121%;
-    /* height: 112%; */
+    width: 214%;
     border: none;
-    background: black;
-    color:white;
+    background: white;
+    color:black;
+    outline: none;
+    
 }
 
 .header ::placeholder{
     color:green;
+
 }
 
 
 .epay-content h4{
-    font-size: 19px;
+    font-size: 28px;
     margin-top: 47px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     
 }
  
 
 .epay-content .epay-content-para{
-    font-size: 12px;
+    font-size: 13px;
     margin-top: 24px;
+    color: #3a4e63;
 
 }
 .epay-content ol{
-    font-size: 10px;
+    font-size: 13px;
     margin-top: 24px;
 }
 
 .epay-content h6{
     padding-top: 16px;
+    font-size: 21px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.epay-content .epay-content-image{
+    text-align:center;
+    padding-right: 117px;
+    padding-top:21px;
+}
+
+.system-interaction p{
+    font-size:13px;
+    padding-bottom: 10px;
+    color: #3a4e63;
+}
+
+.system-interaction .system-interaction-note{
+    background-color: #e7e9eb;
+    padding:18px;
+    border-radius: 6px;
+}
+.system-interaction .system-remove-padding{
+    margin:0;
+}
+
+.system-interaction ul{
+    font-size:13px;
+    color: #3a4e63;
+}
+
+.system-interaction h4{
+    padding-top: 31px;
+    padding-bottom: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.system-interaction .system-para-anchor a{
+    color:green;
+}
+
+.system-interaction .system-para-padded{
+    padding-top:26px;
+}
+
+.system-interaction h6{
+    padding-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.integration .integration-background{
+    background-color: #e7e9eb;
+    padding:18px;
+    border-radius: 10px;
+    
+   
+}
+
+.integration .integration-background pre{
+    margin:0px;
+    padding-top:23px;
+    font-size: 13px;
+    color: #3a4e63;
+    
+}
+
+.payment-span3{
+    color:red !important;
+    font-size: 15px;
+}
+
+.integration h4{
+    padding-top: 17px;
+    padding-bottom: 17px;
+    font-size: 31px;
+    font-family: 'Open Sans', sans-serif;
+}
+.integration h6{
+    padding-bottom: 17px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.integration p{
+    font-size: 13px;
+    color: #3a4e63;
+    padding-top: 10px;
+}
+.integration h5{
+    padding-top: 27px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.integration .payment-span{
+    font-size: 13px;
+    padding-bottom: 15px;
+    color: #3a4e63;
+}
+
+.integration .integration-para-last{
+    padding-top: 17px;
+    padding-bottom: 17px;
+    font-weight: 600;
+}
+.integration-background-green{
+    background-color: #edf9f2;
+    padding: 19px;
+    border-radius: 4px;
+}
+.integration-background-green a{
+    color:green;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+
+/* first table */
+
+table ,th,td{
+    border:solid 0.4px gray;
+
+}
+table{
+    font-size: 16px;
+    font-family: 'Nanum Gothic', sans-serif;
 }
