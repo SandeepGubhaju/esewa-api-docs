@@ -148,7 +148,16 @@
 
       <div class="row">
         <div class="col-md-10">
-          <p class="epay-content-para">What actually happens in the figure is , first user makes a transaction on merchant website .When user select e-Sewa as e-payment gateway then user will get redirect to the esewa login page where user have to fill up their credentials. After that sucess page or failure page will be directed on the merchant site per transaction with the merchant. Esewa will send notification to the user about the amount being deducted.Esewa will verify the amount being received by the merchant .Merchant will request transaction verification and at end esewa will verify transaction response.</p>
+          <p class="epay-content-para">What actually happens in the figure is showm below:</p>
+          <ol type="1">
+            <li>First, User have to choose esewa as a payment gateway at merchant site.</li>
+            <li>User will redirect to esewa login page , where they have to fill up their credentials.</li>
+            <li> According to their balance user will be redirected to merchant failure or success page.</li>
+            <li>eSewa will credit merchant account and notify about the transaction to the user account.</li>
+            <li>eSewa will notify partner merchant about the transaction through IPN.</li>
+            <li>Merchant have to invoke transaction verification request.</li>
+            <li>eSewa will respond partner merchant either with sucess or failure response.</li>
+          </ol>
         </div>
       </div>
 
@@ -553,16 +562,292 @@
      </div>
 
      <div class="row">
-      <div class="col-md-10">
+      <div class="col-md-10 mb-5">
         <div class="integration-background-green">
           <a href="http://merchant.com.np/page/esewa_payment_failure">http://merchant.com.np/page/esewa_payment_failure</a>
         </div>
       </div>
      </div>
 
+     <div class="payment-verification">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 mt-5">
+            <h3>Payment verification</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <p>{URI: /epay/transrec }</p>
+            <p>eSewa provides Fraud Management Filter using Transaction Verification Process, which make it easier for partner merchant to detect and respond to fraudulent transaction. Partner merchant need to implement the filter before they take effect.
+
+            </p>
+            <p>Transaction verification process provide you filter that identify potentially fraudulent transactions and screen against data such as the value of transaction amount. Transaction verification process checks for payment characteristics that may indicate fraudulent activity. You set up Transaction Verification Process to provide the tightest control possible over payments so that you can deny payments that are likely to result in fraudulent transactions and accept payments that are not typically a problem. Payments that require further investigation or intervention, such as comparing prior orders or contacting customer for more information, can be denied or put on hold or pended for review.
+
+            </p>
+            <p>The following flow chart, conceptually shows how transaction verification works:</p>
+            <p>The transaction verification process will tally the difference between transaction amount and total purchase price of the product or services generated at merchant’s end. If the transaction amount of product is less than a specified amount in merchant’s end (i.e. stored price in server) the verification process will end and transaction will be failed.</p>
+            <p>The partner merchant have to send transaction verification request for each successful transactions with various parameters. In amount field merchant have to send the amount generated at their respective server not the amount eSewa sends as response after each successful transaction. All parameters are required. The partner merchant will receive either Success or failure message on response. The Success response message means transaction with given parameters is valid in eSewa while failure means it is void/invalid.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <p><strong>Request Sample Snippet</strong></p>
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <p class="text-danger">HTML</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <div class="integration-background">
+              <pre>
+       &lt;body&gt;
+         &lt;form action="https://uat.esewa.com.np/epay/transrec" method="GET"&gt;
+         &lt;input value="100" name="amt" type="hidden"&gt;
+         &lt;input value="EPAYTEST" name="scd" type="hidden"&gt;
+         &lt;input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden"&gt;
+         &lt;input value="000AE01" name="rid" type="hidden"&gt;
+         &lt;input value="Submit" type="submit"&gt;
+         &lt;/form&gt;
+       &lt;/body&gt;
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10">
+            <p class="text-danger">JAVASCRIPT</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <div class="integration-background">
+              <pre>
+                var path="https://uat.esewa.com.np/epay/transrec";
+                var params= {
+                    amt: 100,
+                    rid: "000AE01",
+                    pid: "ee2c3ca1-696b-4cc5-a6be-2c40d929d453",
+                    scd: "EPAYTEST"
+                }
+                
+                function post(path, params) {
+                    var form = document.createElement("form");
+                    form.setAttribute("method", "POST");
+                    form.setAttribute("action", path);
+                
+                    for(var key in params) {
+                        var hiddenField = document.createElement("input");
+                        hiddenField.setAttribute("type", "hidden");
+                        hiddenField.setAttribute("name", key);
+                        hiddenField.setAttribute("value", params[key]);
+                        form.appendChild(hiddenField);
+                    }
+                
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+                
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10">
+            <p class="text-danger">PHP</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <div class="integration-background">
+              <pre>
+                $url = "https://uat.esewa.com.np/epay/transrec";
+                $data =[
+                    'amt'=> 100,
+                    'rid'=> '000AE01'
+                    'pid'=>'ee2c3ca1-696b-4cc5-a6be-2c40d929d453',
+                    'scd'=> 'EPAYTEST'
+                ]
+                
+                    $curl = curl_init($url);
+                    curl_setopt($curl, CURLOPT_POST, true);
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                    $response = curl_exec($curl);
+                    curl_close($curl);
+              </pre>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-10">
+            <p class="text-danger">PYTHON</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <div class="integration-background">
+              <pre>
+                 #!/usr/bin/python3
+                 import requests as req
+
+                 url ="https://uat.esewa.com.np/epay/transrec"
+                 d = {
+                 'amt': 100,
+                 'scd': 'EPAYTEST',
+                 'rid': '000AE01',
+                 'pid':'ee2c3ca1-696b-4cc5-a6be-2c40d929d453',
+                  }
+                 resp = req.post(url, d)
+                 print(resp.text)
+              </pre>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-md-10">
+          <p><strong>Request Detail</strong></p>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-10">
+          <table>
+            <tr>
+              <th class="text-center ps-3 pe-3">Parameter Name</th>
+              <th class="p">Description</th>
+            </tr>
+            <tr>
+              <td class="text-center text-danger">amt</td>
+              <td>Total payment amount of product or service</td>
+            </tr>
+            <tr>
+              <td class="text-center text-danger">scd</td>
+              <td>	Merchant code provided by eSewa</td>
+            </tr>
+            <tr>
+              <td class="text-center text-danger">pid</td>
+              <td>A unique ID of product or item or ticket etc generated by merchant for payment</td>
+            </tr>
+            <tr>
+              <td class="text-center text-danger">rid</td>
+              <td>A unique payment reference code from eSewa generated on SUCCESSFUL transaction</td>
+            </tr>
+          </table>
+        </div>
+       </div>
+
+     <div class="row">
+      <div class="col-md-10">
+        <p><strong>Response Snippet</strong></p>
+        <p><strong>For Successful Payment Verification</strong></p>
+      </div>
+     </div>
+     
+     <div class="row">
+      <div class="col-md-10">
+        <div class="integration-background">
+          <pre>
+            &lt;response&gt;
+              &lt;response_code>Success&lt;/response_code&gt;
+            &lt;/response&gt;
+          </pre>
+        </div>
+      </div>
+     </div>
+
+     <div class="row">
+      <div class="col-md-10">
+        <p><strong>For Failed Payment Verification</strong></p>
+      </div>
+     </div>
+
+     <div class="row">
+      <div class="col-md-10">
+        <div class="integration-background">
+          <pre>
+            &lt;response&gt;
+            &lt;response_code>failure&lt;/response_code&gt;
+            &lt;/response&gt;
+          </pre>
+        </div>
+      </div>
+     </div>
+
+     <div class="credential">
+      <div class="row">
+        <div class="col-md-10 mt-5">
+          <h5>Credentials & URLs
+          </h5>
+          <p>Each merchant will also receive a wallet on eSewa (Merchant wallet) from where they can find payments made for their products/services:</p>
+        <p>Link For Production Mode: <a href="https://merchant.esewa.com.np" class="text-success">https://merchant.esewa.com.np</a><br>
+        Link For Development Mode: <a href="https://uat-merchant.esewa.com.np" class="text-success">https://uat-merchant.esewa.com.np</a>
+        </p>
+       <p> <strong>Merchant Credentials:</strong> <br>Following are the test merchant credentials to check the payment in the wallet:
+      </p>
+      <p>Username: epaytest@gmail.com <br>
+        Password: test@1234  <br>
+        Merchant ID/Service Code: EPAYTEST</p>
+
+        <p><strong>eSewa ID & Password:</strong> <br> To make payment with eSewa, one must be a registered eSewa user. For testing phase, the client/merchant can use the following eSewa id and password:</p>
+        <p>eSewa ID: 9806800001/2/3/4/5 <br>
+          Password: Nepal@123</p>
+        </div>
+      </div>
+     </div>
+
+      </div>
+     </div>
+
   </div>
 </div>
 
+<div class="faq">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 mt-5">
+        <h4>FAQ</h4>
+        <p><strong class="faq-strong">What is ePay?</strong><br>ePay is payment gateway which enables partner merchants to perform transaction initiated by customers having eSewa account in secure environment.</p>
+        <p><strong class="faq-strong">What is the work-flow of eSewa ePay?</strong>
+        <ul>
+          <li>When user choses eSewa as online payment option from partner merchant application, then user is temporarily redirected to eSewa login page for payment.</li>
+          <li>User will provide valid credentials on login page.</li>
+          <li>By confirming the transaction, user is accepting the transaction details sent by partner merchants.</li>
+          <li>After each successful transaction, the user is redirected back to partner merchant’s success page. If transaction fails due to any reason (which includes user canceling transaction), the user is informed by appropriate failure message and redirected back to partner merchant’s failure page.</li>
+          <li>For every successful transaction, the merchant account is credited accordingly and notified via email/SMS regarding transaction.</li>
+          <li>
+            Partner merchants need to invoke transaction verification request to verify potential fraudulent transactions occurred.</li>
+          <li>eSewa application will automatically notifies partner merchant with either success or failure response.</li>
+        </ul>
+        </p>
+        <p><strong class="faq-strong">What are the item I will get for implementing eSewa ePay API?
+        </strong> <br>You will be provided with a technical document, test merchant service code, test user login credentials.
+
+      </p>
+      <p><strong class="faq-strong">Does eSewa provide payment integration in mobile applications?</strong>
+      <br>Yes, eSewa also provides payment integration in android and iOS applications. You can refer our documentation for mobile SDK integration for detail information about mobile integration.</p>
+      
+      <p><strong class="faq-strong">What is the settlement mechanism from eSewa to Merchant Bank Account?</strong><br>On successful transaction the balance from eSewa user is transferred to merchant account and merchant can withdraw balance to respective bank account in free of cost.</p>
+       <p><strong class="faq-strong">How eSewa provides support up on receiving any trouble because of ePay?</strong><br>eSewa provides 24 hours of customer support service. You can contact us in case of any inconvenience.</p>
+   <p><strong class="faq-strong">What is supposed to be done if the payment amount is confirmed by eSewa and transaction amount requested by Web application is not equal?</strong><br>This may be the case of fraud transaction. For filtering fraud transactions, eSewa provides transaction verification system. So in this case service/product delivery must be stopped and one should implement the transaction verification process in eSewa ePay API as soon as possible.</p>
+  <p><strong class="faq-strong">What is the time per session to make successful payment?</strong><br>If payment is not made within 15 minutes of login then transaction will be failed and user must reinitiate the transaction.</p>    
+        <p><strong class="faq-strong">Should customer must have eSewa ID and its credential to do payment?</strong><br>Yes, customer must be registered to eSewa for the completing the transaction.</p>
+</div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
+  "></script>
+
+<script src="script/script.js"></script>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

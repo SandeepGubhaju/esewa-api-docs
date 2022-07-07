@@ -106,11 +106,24 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
-.content .content-para{
+.content .content-para1{
     font-size: 13px;
     font-weight: 350;
     color: #3a4e63;
 }
+
+.content .content-para2{
+    font-size: 13px;
+    font-weight: 350;
+    color: #3a4e63;
+}
+
+.content .content-para3{
+    font-size: 13px;
+    font-weight: 350;
+    color: #3a4e63;
+}
+
 
 /* margin auto */
 *, ::after, ::before {
@@ -215,6 +228,7 @@
 }
  
 
+
 .epay-content .epay-content-para{
     font-size: 13px;
     margin-top: 24px;
@@ -224,6 +238,7 @@
 .epay-content ol{
     font-size: 13px;
     margin-top: 24px;
+    color: rgb(58, 78, 99);
 }
 
 .epay-content h6{
@@ -351,4 +366,26 @@ table ,th,td{
 table{
     font-size: 16px;
     font-family: 'Nanum Gothic', sans-serif;
+}
+
+
+/* FAQ */
+.faq h4{
+    font-size: 31px;
+    font-family: 'Open Sans', sans-serif; 
+}
+
+.faq .faq-strong{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.faq p{
+    font-size: 13px;
+    color: rgb(58, 78, 99);
+}
+
+.faq ul{
+    font-size: 13px;
+    color: #3a4e63;
 }
