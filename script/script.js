@@ -1,11 +1,4 @@
-// function contentHide(){
-//     var x=document.querySelectorAll(".content-para1")
-//     if(x.style.display==="none"){
-//         x.style.display="block";
-//     }else{
-//         x.style.display="none"
-//     }
-// }
+
 
 $(document).ready(function(){
     $("h4").click(function(){
@@ -29,8 +22,15 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $("h4").click(function(){
-        $(".epay-content-para").toggle();
+    $("h6").click(function(){
+        $(".epay-content-para").parent('li').toggle();
+        
     });
     
+});
+
+$(document).ready(function(){
+    $("h4").click(function(){
+        $(".epay-content-para1").toggle();
+    });
 });
