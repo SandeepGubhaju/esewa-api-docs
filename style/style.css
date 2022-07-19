@@ -30,7 +30,7 @@
 .second-image{
     position: absolute;
     top: 40px;
-    left: 440px;
+    left: 545px;
 }
 
 
@@ -47,24 +47,24 @@
 .main-content{
     position: absolute;
     top: 200px;
-    left: 245px;
+    left: 326px;
     text-align: center;
 }
 
 .main-content h6 {
-    font-size:10px;
+    font-size:16px;
 
 }
 .main-content .main-para1{
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 400;
 }
 .main-content .main-para2 {
-    font-size: 32px;
+    font-size: 41px;
     font-weight: 200;
 }
 .main-content .main-para3{
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -101,25 +101,25 @@
 }
 
 .content h4{
-    font-size: 32px;
+    font-size: 34px;
     margin-bottom: 23px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
 .content .content-para1{
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 350;
     color: #3a4e63;
 }
 
 .content .content-para2{
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 350;
     color: #3a4e63;
 }
 
 .content .content-para3{
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 350;
     color: #3a4e63;
 }
@@ -191,23 +191,34 @@
   .content-third-para a{
     color: green;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 17px;
   }
   .content-third-para h6{
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .content-third-para ul li {
-    font-size:13px;
+    font-size:15px;
   }
 
 
   /* search bar */
 
+  .search-bar1{   
+    padding-right: 242px;
+    background: url("/image/magnifying-glass-solid.svg") no-repeat right !important;
+    background-size: 10px;
+    background-color: white !important;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    
+  }
+
   .header input[type="text"] {
     width: 214%;
     border: none;
-    background: white;
+    
     color:black;
     outline: none;
     
@@ -220,7 +231,7 @@
 
 
 .epay-content h4{
-    font-size: 28px;
+    font-size: 32px;
     margin-top: 47px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -229,27 +240,27 @@
  
 
 .epay-content .epay-content-para1{
-    font-size: 13px;
+    font-size: 15px;
     margin-top: 24px;
     color: #3a4e63;
 }
 
 
 .epay-content .epay-content-para{
-    font-size: 13px;
+    font-size: 15px;
     margin-top: 24px;
     color: #3a4e63;
 
 }
 .epay-content ol{
-    font-size: 13px;
+    font-size: 15px;
     margin-top: 24px;
     color: rgb(58, 78, 99);
 }
 
 .epay-content h6{
-    padding-top: 16px;
-    font-size: 21px;
+    padding-top: 15px;
+    font-size: 24px;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -260,7 +271,7 @@
 }
 
 .system-interaction p{
-    font-size:13px;
+    font-size:15px;
     padding-bottom: 10px;
     color: #3a4e63;
 }
@@ -275,7 +286,7 @@
 }
 
 .system-interaction ul{
-    font-size:13px;
+    font-size:14px;
     color: #3a4e63;
 }
 
@@ -296,6 +307,7 @@
 .system-interaction h6{
     padding-bottom: 10px;
     font-family: 'Poppins', sans-serif;
+    font-size:23px;
 }
 
 .integration .integration-background{
@@ -309,7 +321,7 @@
 .integration .integration-background pre{
     margin:0px;
     padding-top:23px;
-    font-size: 13px;
+    font-size: 15px;
     color: #3a4e63;
     
 }
@@ -322,7 +334,7 @@
 .integration h4{
     padding-top: 17px;
     padding-bottom: 17px;
-    font-size: 31px;
+    font-size: 35px;
     font-family: 'Open Sans', sans-serif;
 }
 .integration h6{
@@ -331,17 +343,18 @@
 }
 
 .integration p{
-    font-size: 13px;
+    font-size: 15px;
     color: #3a4e63;
     padding-top: 10px;
 }
 .integration h5{
     padding-top: 27px;
     font-family: 'Poppins', sans-serif;
+    font-size: 26px;
 }
 
 .integration .payment-span{
-    font-size: 13px;
+    font-size: 15px;
     padding-bottom: 15px;
     color: #3a4e63;
 }
@@ -359,7 +372,7 @@
 .integration-background-green a{
     color:green;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 
@@ -382,16 +395,16 @@ table{
 }
 
 .faq .faq-strong{
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 500;
 }
 
 .faq p{
-    font-size: 13px;
+    font-size: 15px;
     color: rgb(58, 78, 99);
 }
 
 .faq ul{
-    font-size: 13px;
+    font-size: 15px;
     color: #3a4e63;
 }
